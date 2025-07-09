@@ -1,0 +1,21 @@
+# Best Practice: data.yaml using relative paths
+
+# The absolute path to the root of your dataset.
+# This is the ONLY line you might need to change if you move your project.
+path: /content/drive/MyDrive/YOLO_Dispatch
+
+# Paths to train and val image directories, RELATIVE to the 'path' defined above.
+train: Dataset/Detection/train/images
+val: Dataset/Detection/val/images
+
+# Number of classes
+nc: 6
+
+# Class names - The order MUST match your label IDs (0, 1, 2, 3, 4, 5)
+names:
+  - dish_empty
+  - dish_kakigori
+  - dish_not_empty
+  - tray_empty
+  - tray_kakigori
+  - tray_not_empty

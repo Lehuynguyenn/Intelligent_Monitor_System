@@ -1,0 +1,45 @@
+# /.gitignore
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE and editor configuration
+.idea/
+.vscode/
+
+# Large Datasets - CRITICAL
+# Never commit large datasets to Git.
+Dataset/
+
+# Feedback folder (will be created by the app)
+feedback_inbox/
+
+# Local training runs folder
+runs/
+
+# Build artifacts and distributions
+dist/
+build/
+*.egg-info/
+# Python egg files
+*.egg
+
+# Video clips and outputs
+video_clips/
+# Local output video file
+output_video_local_test.mp4
+# Test clip
+test_clip.mp4
+feedback_inbox/
+runs/
+video_clips/
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
