@@ -70,3 +70,4 @@ This project is designed to be run with Docker. No local Python environment setu
     You will see log output in your terminal indicating the progress of the video processing. Once the script is finished, the container will stop.
 
     A new file named **`output_video.mp4`** will be created in your project's root directory. You can open this file to see the final result.
+    #streamlit run src/web.py
