@@ -1,0 +1,12 @@
+# /.streamlit/config.toml
+
+# This section controls the behavior of the Streamlit server
+[server]
+
+# This is the key setting.
+# Setting headless = true tells Streamlit NOT to open a browser window on startup.
+headless = true
+
+# This setting ensures the app is accessible from the Docker container.
+# It is already in your docker-compose command, but setting it here is also good practice.
+enableCORS = false

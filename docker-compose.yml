@@ -1,0 +1,17 @@
+# /docker-compose.yml
+
+services:
+  # Define a name for our service
+  processing_service:
+    # Tell Compose to build the image from the Dockerfile in the current directory
+    build: .
+    # Give the running container a friendly name
+    container_name: dispatch_processing_service
+    # This is the most important part for usability.
+    # It mounts your current project directory on your computer
+    # into the /app directory inside the container.
+    # This allows the container to:
+    #   1. Read input files like 'dispatch_video.mp4' and 'models/best.pt'.
+    #   2. Write the 'output_video.mp4' file directly back to your project folder.
+    volumes:
+      - .:/app

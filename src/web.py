@@ -10,8 +10,8 @@ import time
 # --- Configuration ---
 MODEL_PATH = "models/best.pt"
 VIDEO_PATH = "dispatch_video.mp4"
-ROI_COORDS = (950, 50, 1500, 330)
-CONF_THRESHOLD = 0.30
+ROI_COORDS = (930, 56, 1500, 315)
+CONF_THRESHOLD = 0.35
 FEEDBACK_DIR = "feedback_inbox"
 
 os.makedirs(FEEDBACK_DIR, exist_ok=True)
@@ -97,6 +97,7 @@ if model:
                     cv2.rectangle(frame, (draw_x1, draw_y1), (draw_x2, draw_y2), (0, 255, 0), 2)
                     cv2.putText(frame, label, (draw_x1, draw_y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
             
-            image_placeholder.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), channels="RGB", use_column_width=True)
+            # New, corrected line
+            image_placeholder.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), channels="RGB", use_container_width=True)
             time.sleep(0.01)
         cap.release()
