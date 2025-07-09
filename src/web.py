@@ -10,7 +10,7 @@ import time
 # --- Configuration ---
 MODEL_PATH = "models/best.pt"
 VIDEO_PATH = "dispatch_video.mp4"
-ROI_COORDS = (930, 56, 1500, 315)
+ROI_COORDS = (930, 58, 1500, 307)
 CONF_THRESHOLD = 0.35
 FEEDBACK_DIR = "feedback_inbox"
 
