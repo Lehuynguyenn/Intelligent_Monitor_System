@@ -1,0 +1,45 @@
+# /.dockerignore
+
+# Ignore the virtual environment
+.venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# --- CRITICAL: IGNORE THESE LARGE FOLDERS ---
+Dataset/
+video_clips/
+runs/
+feedback_inbox/
+
+# Ignore large video and model files that are mounted, not copied
+# (This is good practice even with volumes)
+*.mp4
+*.pt
+*.onnx
+*.tar
+
+# Ignore Git files and IDE settings
+.git/
+.gitignore
+.gitattributes
+.idea/
+.vscode/
+Miscellaneous/
+*.swp
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+# Ignore build artifacts
+build/
+dist/
+# Ignore Docker-related files
+# Ignore logs and temporary files
+*.log
+*.tmp
+# Ignore environment variable files
+.env
+.env.local
+# Ignore system files
+.DS_Store
+Thumbs.db
