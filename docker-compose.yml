@@ -1,17 +1,17 @@
 # /docker-compose.yml
-
 services:
-  # Define a name for our service
-  processing_service:
-    # Tell Compose to build the image from the Dockerfile in the current directory
+  monitoring_app:
+    # Build the Docker image from the Dockerfile in the current directory
     build: .
-    # Give the running container a friendly name
-    container_name: dispatch_processing_service
-    # This is the most important part for usability.
-    # It mounts your current project directory on your computer
-    # into the /app directory inside the container.
-    # This allows the container to:
-    #   1. Read input files like 'dispatch_video.mp4' and 'models/best.pt'.
-    #   2. Write the 'output_video.mp4' file directly back to your project folder.
+    # Name the container for easy identification
+    container_name: dispatch_monitoring_service
+    # CORRECTED command to run the web.py Streamlit app
+    command: streamlit run src/web.py --server.port 8501 --server.address 0.0.0.0
+    # Map port 8501 from the container to port 8501 on your local machine
+    ports:
+      - "8501:8501"
+    # Mount the entire project directory into the /app directory in the container
+    # This allows the feedback mechanism to save images to your local disk
+    # and allows you to change code without rebuilding the image.
     volumes:
       - .:/app

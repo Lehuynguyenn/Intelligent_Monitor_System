@@ -1,26 +1,25 @@
 # /Dockerfile
-
-# Start with a slim, official Python base image
+# Use an official Python runtime as a parent image.
 FROM python:3.9-slim-buster
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Install system-level dependencies required by OpenCV
-# This prevents common errors when running graphics libraries in a headless environment.
+# Install system dependencies needed by OpenCV for GUI elements
 RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
 
-# Copy the requirements file first to leverage Docker's build cache.
-# If requirements.txt doesn't change, Docker won't re-install packages on every build.
+# Copy the requirements file first to leverage Docker cache
 COPY requirements.txt ./
 
-# Install all Python dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your application code into the container's working directory.
-# The .dockerignore file will prevent large folders from being copied.
+# Copy the rest of the application source code into the container
 COPY . .
 
-# Set the default command to run when the container starts.
-# This will execute your main processing script.
-CMD ["python", "src/web.py"]
+# Expose the port that Streamlit will run on
+EXPOSE 8501
+
+# Command to run the application when the container starts
+# CORRECTED to use web.py
+CMD ["streamlit", "run", "src/web.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
