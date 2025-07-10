@@ -1,6 +1,6 @@
 # Intelligent Dispatch Monitoring System
 
-This is my first project on GitHub as well as firstly related AI.
+This is my very first project on GitHub as well as firstly related AI.
 If there are something went wrong, please help me to fix it or give feedback.
 
 ## Project Structure
@@ -14,26 +14,25 @@ Intelligent_Monitor_System/
 ├── config/
 │   └── data.yaml           
 ├── Dataset/       
-    └── Classification      
-    └── Detection  
-        └── train
-        └── val
-        └── dataset.yaml
+│   ├── Classification      
+│   └── Detection  
+│       ├── train
+│       ├── val
+│       └── dataset.yaml
 ├── feedback_inbox
 ├── Miscellaneous/
-    └── run/detect/train/...
-    └── 
-    # --- Development & Utility Scripts ---
-    ├── train.py                  
-    ├── test.py                  
-    ├── split.py                  
-    ├── optimize_threshold_rl.py  
-    └── ...    
+│   └── run/detect/train/...
+│   # --- Development & Utility Scripts ---
+│   ├── train.py                  
+│   ├── test.py                  
+│   ├── split.py                  
+│   ├── optimize_threshold_rl.py  
+│   └── ...    
 ├── models/
 │   └── best.pt             
 ├── src/
 │   └── scripts  
-        └── web.py  
+│       └── web.py  
 ├── .dockerignore
 ├── .gitattributes        
 ├── .gitignore     
@@ -42,7 +41,7 @@ Intelligent_Monitor_System/
 ├── Dockerfile                
 ├── output_video_local_test.mp4               
 ├── README.md            
-├── requirements.txt       
+└──  requirements.txt       
 ```
 
 ---
