@@ -5,8 +5,13 @@ FROM python:3.9-slim-buster
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies needed by OpenCV for GUI elements
+# Install system dependencies needed by OpenCV
 RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
+
+# --- FIX for Ultralytics Warning ---
+# Create the config directory and set permissions so the library can write to it.
+RUN mkdir -p /root/.config/Ultralytics && \
+    chmod -R 777 /root/.config
 
 # Copy the requirements file first to leverage Docker cache
 COPY requirements.txt ./
@@ -20,6 +25,5 @@ COPY . .
 # Expose the port that Streamlit will run on
 EXPOSE 8501
 
-# Command to run the application when the container starts
-# CORRECTED to use web.py
+# The command to run when the container starts
 CMD ["streamlit", "run", "src/web.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
