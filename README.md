@@ -9,23 +9,40 @@ The project is organized into distinct directories for configuration, models, an
 
 ```
 Intelligent_Monitor_System/
+├── .streamlit
+├── .venv
 ├── config/
-│   └── data.yaml           # YOLO data configuration for training.
+│   └── data.yaml           
+├── Dataset/       
+    └── Classification      
+    └── Detection  
+        └── train
+        └── val
+        └── dataset.yaml
+├── feedback_inbox
+├── Miscellaneous/
+    └── run/detect/train/...
+    └── 
+    # --- Development & Utility Scripts ---
+    ├── train.py                  
+    ├── test.py                  
+    ├── split.py                  
+    ├── optimize_threshold_rl.py  
+    └── ...    
 ├── models/
-│   └── best.pt             # The final, trained PyTorch model.
+│   └── best.pt             
 ├── src/
-│   └── web.py              # The Streamlit web application.
-├── .gitignore                # Specifies files for Git to ignore.
-├── Dockerfile                # Defines the Docker container environment.
-├── docker-compose.yml        # Manages the Docker service for easy execution.
-├── requirements.txt          # Python dependencies for the local environment.
-├── README.md                 # This file.
-│
-├── # --- Development & Utility Scripts ---
-├── train.py                  # Script used in Colab/locally to train the model.
-├── test.py                   # Local script to run batch processing on a short clip.
-├── split.py                  # Script to create a shorter video clip for testing.
-└── optimize_threshold_rl.py  # Script to find the optimal confidence threshold.
+│   └── scripts  
+        └── web.py  
+├── .dockerignore
+├── .gitattributes        
+├── .gitignore     
+├── dispatch_video.mp4     
+├── docker-compose.yml  
+├── Dockerfile                
+├── output_video_local_test.mp4               
+├── README.md            
+├── requirements.txt       
 ```
 
 ---
@@ -88,6 +105,11 @@ This method launches a web application to view the model's performance in real-t
     Once the server starts, open your web browser and navigate to:
     ```
     http://localhost:8501
+    ```
+3.  **Stop the Application:**
+    To stop the server, go back to your terminal and press
+    ```
+    Ctrl+C
     ```
 
 #### Method B: Fast Batch Processing Test
